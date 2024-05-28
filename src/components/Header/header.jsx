@@ -1,12 +1,12 @@
 import React from "react";
 import Button from "../button/button";
+import Button from "../hoooks/useTelegram";
 
 const Header = () => {
-    const tg =  window.Telegram.WebApp;
-    const onClose = () => {
-        tg.close()
-      }
+
     
+    const  {user,onClose} = useTelegram();
+
     return (
 
 
@@ -14,7 +14,7 @@ const Header = () => {
       <div className={"Header"}>
         <button onClick={onClose}>Закрыть</button>
         <span className={"username"}>
-            {tg.initDateUnsafe?.user?.username}
+            {user.username}
         </span>
 
       </div>
@@ -23,4 +23,4 @@ const Header = () => {
     );
 };
 
-export default Button;
+export default Header;
